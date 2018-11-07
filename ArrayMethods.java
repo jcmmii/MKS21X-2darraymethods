@@ -1,7 +1,7 @@
 public class ArrayMethods {
   public static int rowSum(int[][] ary, int x) {
     int sum = 0;
-    if (x > ary.length) {
+    if (x >= ary.length) {
       return 0;
     }
     for (int y = 0; y < ary[x].length; y++) {
@@ -68,9 +68,11 @@ public class ArrayMethods {
 
   public static boolean isColumnMagic(int[][] ary){
     int[] sumCol = allColSums(ary);
-    for (int x = 0; x < ary.length-1; x++){
-      if (sumCol[x] != sumCol[x+1]) {
-        return false;
+    if (sumCol.length > 0) {
+      for (int x = 0; x < ary.length-1; x++){
+        if (sumCol[x] != sumCol[x+1]) {
+          return false;
+        }
       }
     }
     return true;
